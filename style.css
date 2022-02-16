@@ -3,3 +3,18 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+h6 {
+  font-weight: bold;
+}
+.income {
+  background-color: #f8f8f8;
+}
+/* ---------------input-item--------- */
+input {
+  border: none;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+  margin-top: 10px;
+  outline: #dcdcdc;
+  padding: 5px;
+}
