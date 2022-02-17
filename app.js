@@ -13,9 +13,9 @@ function inputValue(inputId) {
 
   //===============Check input Value =================
   if (isNaN(inputValue)) {
-    cleck("toast", inputId, "valid");
+    cleck(inputId, "valid");
   } else if (inputValue < 0) {
-    cleck("toast", inputId, "Positive");
+    cleck(inputId, "Positive");
   } else {
     const inputNumber = parseFloat(inputValue);
     return inputNumber;
@@ -23,12 +23,16 @@ function inputValue(inputId) {
 }
 
 //==================Check Function===============
-function cleck(toastId, inputId, check) {
-  const toast = document.getElementById(toastId);
+function cleck(inputId, checkText, moreBalance) {
+  const toast = document.getElementById("toast");
   toast.classList.add("show");
-  const ToastBody = document.getElementById(toastId + "-text");
-  ToastBody.innerText = `Please Enter a ${inputId} ${check} Number !!`;
+  const ToastBody = document.getElementById("toast-text");
+  ToastBody.innerText = `Please Enter a ${inputId} ${checkText} Number !!`;
+  if (moreBalance == true) {
+    ToastBody.innerText = `Your ${inputId} ${checkText}  !!`;
+  }
 }
+
 /* 
 =============Calculatle Function ===========
 */
@@ -40,8 +44,9 @@ function calculate() {
 
   const totalExpenses = foodNumber + RentNumber + ClothesNumber;
   const totalBalance = income - totalExpenses;
+  //================total Expenses check=============
   if (totalExpenses > totalBalance) {
-    cleck("toast", "TotalExpenses amount more than your Balance account", "");
+    cleck("TotalExpenses amount more than your Balance account", "", true);
   }
   document.getElementById("total-expenses").innerText = totalExpenses;
   document.getElementById("total-balance").innerText = totalBalance;
@@ -57,7 +62,11 @@ function saveMoneyCalculate() {
   const saveAmount = (income * saveMoneyParcent) / 100;
   const RemainingBalance = parseFloat(totalBalance) - saveAmount;
   if (saveAmount > totalBalance) {
-    cleck("toast", "amount more than your savings account balance", "");
+    cleck(
+      "savings account balance more than your Total account balance",
+      "",
+      true
+    );
   }
   //====text Vavlue
   document.getElementById("save-amount").innerText = saveAmount;
