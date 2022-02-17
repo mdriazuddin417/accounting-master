@@ -61,6 +61,7 @@ function saveMoneyCalculate() {
 
   const saveAmount = (income * saveMoneyParcent) / 100;
   const RemainingBalance = parseFloat(totalBalance) - saveAmount;
+  //============Check save Amount =============
   if (saveAmount > totalBalance) {
     cleck(
       "savings account balance more than your Total account balance",
