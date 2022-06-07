@@ -69,7 +69,7 @@ function saveMoneyCalculate() {
       true
     );
   }
-  //====text Vavlue
+  //====text Value
   document.getElementById("save-amount").innerText = saveAmount;
   document.getElementById("remaining-balance").innerText = RemainingBalance;
   document.getElementById("total-balance").innerText = totalBalance;
